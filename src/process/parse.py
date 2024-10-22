@@ -2,6 +2,18 @@ import pathlib
 
 
 def parse_text(text: str) -> str:
+    """
+    Parse the text and return the parsed content
+
+    Args:
+        text: The text to be parsed
+        
+    Returns:
+        str: The parsed content
+    
+    Notes:
+        First 3 lines are skipped they contain title of youtube video and the date of the video and the link to the video
+    """
     lines = text.split("\n")
     lines = lines[3:]
     parsed_lines = []
@@ -9,8 +21,6 @@ def parse_text(text: str) -> str:
         parsed_line = line[13:] 
         parsed_lines.append(parsed_line)
     return "\n".join(parsed_lines)
-
-
 
 # ============================================================
 
@@ -23,7 +33,6 @@ def parse_file_tactiq(file_path: str | pathlib.Path) -> str:
         
     Returns:
         str: Message indicating where the parsed file was saved
-  
     """
  
     path = pathlib.Path(file_path)
